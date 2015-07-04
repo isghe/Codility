@@ -26,7 +26,7 @@ class Equi{
       aRightSigma -= value;
       aTemp = value;
       // console.log ({index:index, aLeftSigma:aLeftSigma, aRightSigma:aRightSigma, aTemp:aTemp});
-      var ret = aLeftSigma == aRightSigma;
+      var ret = aLeftSigma === aRightSigma;
       if (true === ret){
         aCurrentIndex = index;
         aResults.push (index);
