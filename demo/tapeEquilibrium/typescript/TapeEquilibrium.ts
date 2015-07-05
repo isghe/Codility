@@ -11,6 +11,20 @@ class IGUtil{
   public static log (theMessage){
     console.log (theMessage);
   }
+
+  public static getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  public static randomArray (theLength:number):number[]{
+    var ret:number[] = [];
+    for (let i = 0; i < theLength; ++i){
+      ret.push (IGUtil.getRandomInt (-1000, 1000));
+      // ret.push (1);
+    }
+    // IGUtil.log (ret);
+    return ret;
+  }
 }
 class TapeEquilibrium{
   private fArray:number [];
@@ -29,7 +43,7 @@ class TapeEquilibrium{
       aRightSigma -= value;
       aDeltas.push (Math.abs (aLeftSigma - aRightSigma));
     });
-    IGUtil.log (aDeltas);
+    // IGUtil.log (aDeltas);
     return Math.min.apply (null, aDeltas);
   }
 }
@@ -38,11 +52,13 @@ var solution = function (theArray:number[]){
   var aSolver:TapeEquilibrium = new TapeEquilibrium (theArray);
   return aSolver.doIt ();
 }
-
+/*
 var aTest = [
+  IGUtil.randomArray (100000),
   [0,1],
   [3, 1, 2, 4, 3],
   [1, 2, 7],
   [-1, 3, -4, 5, 1, -6, 2, 1]
 ];
 console.log (solution (aTest[0]));
+*/
